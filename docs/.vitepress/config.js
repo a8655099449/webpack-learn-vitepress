@@ -8,7 +8,7 @@ const config = defineConfig({
   description: 'my blog work',
   lastUpdated: true,
   themeConfig: {
-    logo: 'https://fulcrum-xy2-jingweisuo.obs.cn-south-1.myhuaweicloud.com:443/9680b50951fc48529a8ee216ffb7dc6a.ico',
+    // logo: 'https://fulcrum-xy2-jingweisuo.obs.cn-south-1.myhuaweicloud.com:443/9680b50951fc48529a8ee216ffb7dc6a.ico',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
     ],
@@ -27,8 +27,7 @@ const config = defineConfig({
     apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
     indexName: 'vitepress'
   },
-
-
+  markdown: {}
 })
 
 
@@ -40,10 +39,15 @@ const config = defineConfig({
 function nav() {
   return [
     { text: '日常开发', link: '/pages/working/', activeMatch: '/pages/working/' },
-    { text: '学习', link: '/config/introduction', activeMatch: '/config/' },
+    {
+      text: '学习',
+      items: [
+        { text: 'webpack', link: '/pages/learn/webpack/' },
+      ]
+    },
     {
       text: '读书笔记',
-      link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md'
+      // link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md'
     }
   ]
 }

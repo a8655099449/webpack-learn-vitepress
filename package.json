@@ -11,5 +11,13 @@
     "dev": "vitepress dev docs --port=8888 --host",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.3",
+    "fs-extra": "^10.1.0",
+    "gitalk": "^1.7.2",
+    "globby": "^13.1.2",
+    "gray-matter": "^4.0.3",
+    "lottie-web": "^5.9.4"
   }
 }
