@@ -1,8 +1,10 @@
 import { defineConfig } from "vitepress"
+import learnSide from "./side/learn"
+import workSide from "./side/working"
 
 const config = defineConfig({
 
-  title: 'webpack 的学习',
+  title: '三体反攻舰队',
   description: 'my blog work',
   lastUpdated: true,
   themeConfig: {
@@ -14,24 +16,40 @@ const config = defineConfig({
       pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
       text: 'Edit this page on GitHub'
     },
-    nav: nav()
+    nav: nav(),
+    sidebar: {
+      '/pages/working/': workSide,
+      '/pages/learn/': learnSide,
+    }
+  },
+  algolia: {
+    appId: '8J64VVRP8K',
+    apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
+    indexName: 'vitepress'
+  },
 
-  }
 
 })
 
 
 
+
+
+
+
 function nav() {
   return [
-    { text: 'Guide', link: '/guide/what-is-vitepress', activeMatch: '/guide/' },
-    { text: 'Configs', link: '/config/introduction', activeMatch: '/config/' },
+    { text: '日常开发', link: '/pages/working/', activeMatch: '/pages/working/' },
+    { text: '学习', link: '/config/introduction', activeMatch: '/config/' },
     {
-      text: 'Changelog',
+      text: '读书笔记',
       link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md'
     }
   ]
 }
+
+
+
 
 
 export default config
