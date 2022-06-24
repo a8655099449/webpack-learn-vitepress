@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: 开始浪费时间
-      link: /pages/start
+      link: /pages/working/
     - theme: alt
       text: View on GitHub
       link: https://github.com/vuejs/vitepress

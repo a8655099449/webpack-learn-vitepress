@@ -8,6 +8,7 @@ export default {
   name:'text'
 
 };
+
 </script>
 
 <style></style>
