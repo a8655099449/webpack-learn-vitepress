@@ -20,14 +20,18 @@ const config = defineConfig({
     sidebar: {
       '/pages/working/': workSide,
       '/pages/learn/': learnSide,
-    }
+    },
+    docsDir: "/",
   },
   algolia: {
     appId: '8J64VVRP8K',
     apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
     indexName: 'vitepress'
   },
-  markdown: {}
+  markdown: {
+    lineNumbers: true,
+    toc: { includeLevel: [1, 2, 3, 4] },
+  }
 })
 
 
@@ -42,7 +46,14 @@ function nav() {
     {
       text: '学习',
       items: [
-        { text: 'webpack', link: '/pages/learn/webpack/' },
+        {
+          text: 'webpack',
+          link: '/pages/learn/webpack/',
+        },
+        {
+          text: 'js',
+          link: '/pages/learn/js/set',
+        },
       ]
     },
     {

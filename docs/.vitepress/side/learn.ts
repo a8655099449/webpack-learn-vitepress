@@ -4,6 +4,15 @@ const learnSide = [
     collapsible: true,
     items: [
       { text: "webpack的初体验", link: "/pages/learn/webpack/" },
+      { text: "webpack中的js资源", link: "/pages/learn/webpack/01" },
+    ],
+  },
+  {
+    text: "js基础",
+    collapsible: true,
+    items: [
+      { text: "js 中的 set 、 map 、weakMap 、 weakSet", link: "/pages/learn/js/set" },
+     
     ],
   },
 ];
