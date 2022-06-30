@@ -99,8 +99,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
 
 
-## flex
-- 让内容居右显示
+## flex 让内容居右显示
 ```css
 display: flex;
 justify-content: flex-end;
@@ -739,3 +738,5 @@ div {
 ```
 
 **在火狐或者ie浏览器中**
+
+
