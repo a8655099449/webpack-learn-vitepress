@@ -5,6 +5,7 @@ const learnSide = [
     items: [
       { text: "webpack的初体验", link: "/pages/learn/webpack/" },
       { text: "webpack中的js资源", link: "/pages/learn/webpack/01" },
+      { text: "开发服务器", link: "/pages/learn/webpack/02" },
     ],
   },
   {

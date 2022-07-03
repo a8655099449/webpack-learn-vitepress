@@ -481,3 +481,21 @@ module.exports = {
   plugins: [new HtmlWebpackPlugin()],
 };
 ```
+
+如果我们有自己的html模板，也可以使用添加参数的形式来完成
+
+**使用**
+```javascript
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+
+module.exports = {
+  //  ... ,  
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public/index.html')
+    })
+  ],
+};
+```
+
