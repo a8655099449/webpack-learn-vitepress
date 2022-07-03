@@ -13,7 +13,7 @@ const learnSide = [
     collapsible: true,
     items: [
       { text: "js 中的 set 、 map 、weakMap 、 weakSet", link: "/pages/learn/js/set" },
-     
+      { text: "webpack中常见的面试题", link: "/pages/learn/webpack/interview" },
     ],
   },
 ];
