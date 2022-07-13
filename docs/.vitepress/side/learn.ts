@@ -7,6 +7,11 @@ const learnSide = [
       { text: "webpack中的js资源", link: "/pages/learn/webpack/01" },
       { text: "开发服务器", link: "/pages/learn/webpack/02" },
       { text: "webpack中的高级配置", link: "/pages/learn/webpack/03" },
+      { text: "减少代码打包体积", link: "/pages/learn/webpack/04" },
+      {
+        text: "使用webpack搭建react的脚手架",
+        link: "/pages/learn/webpack/webpack-react-cli",
+      },
       { text: "webpack中常见的面试题", link: "/pages/interview/webpack" },
     ],
   },
@@ -14,7 +19,10 @@ const learnSide = [
     text: "js基础",
     collapsible: true,
     items: [
-      { text: "js 中的 set 、 map 、weakMap 、 weakSet", link: "/pages/learn/js/set" },
+      {
+        text: "js 中的 set 、 map 、weakMap 、 weakSet",
+        link: "/pages/learn/js/set",
+      },
     ],
   },
 ];
@@ -22,6 +30,5 @@ const learnSide = [
 // class A {
 //   constructor
 // }
-
 
 export default learnSide;
