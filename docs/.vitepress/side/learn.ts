@@ -25,6 +25,13 @@ const learnSide = [
       },
     ],
   },
+	{
+		text: '小程序开发',
+		collapsible: true,
+		items: [
+			{ text: '小程序页面和组件的创建', link: '/pages/learn/miniapp/01' },
+		],
+	},
 ];
 
 // class A {
@@ -32,3 +39,4 @@ const learnSide = [
 // }
 
 export default learnSide;
+
