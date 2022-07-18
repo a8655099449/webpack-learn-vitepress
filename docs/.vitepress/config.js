@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress"
+import interviewSide from "./side/interview"
 import learnSide from "./side/learn"
 import workSide from "./side/working"
 
@@ -20,6 +21,7 @@ const config = defineConfig({
     sidebar: {
       '/pages/working/': workSide,
       '/pages/learn/': learnSide,
+      '/pages/interview/':interviewSide
     },
     docsDir: "/",
   },
@@ -54,6 +56,10 @@ function nav() {
         {
           text: 'js',
           link: '/pages/learn/js/set',
+        },
+        {
+          text: '面试',
+          link: '/pages/interview/',
         },
       ]
     },
