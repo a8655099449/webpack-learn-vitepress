@@ -34,7 +34,7 @@ parseInt接受两个参数 `parseInt(string, radix)` ,第一个参数没啥好�
 
 ## 什么是防抖和节流？有什么区别？如何实现？
 
-关于这个问题，请参考 [我另一篇文章【节流与防抖】](/js/catelog-node/debounce.html)
+关于这个问题，请参考 `我另一篇文章【节流与防抖】`
 
 
 ##  Set、Map、WeakSet 和 WeakMap 的区别？
