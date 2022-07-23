@@ -5,11 +5,20 @@
   "license": "MIT",
   "devDependencies": {
     "vitepress": "^1.0.0-alpha.2",
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "webpack-dev-server": "^4.9.2"
   },
   "scripts": {
-    "dev": "vitepress dev docs",
+    "dev": "vitepress dev docs  --host",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.3",
+    "fs-extra": "^10.1.0",
+    "gitalk": "^1.7.2",
+    "globby": "^13.1.2",
+    "gray-matter": "^4.0.3",
+    "lottie-web": "^5.9.4"
   }
 }

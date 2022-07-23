@@ -1,13 +1,6 @@
 ---
-title: VitePress,
-titleTemplate: Vite & Vue powered static site generator.
-description: VitePress
-editLink: true
+title: 开始阅读,
 ---
-<script setup>
-  import Text from '../components/text.vue'
-</script>
 
-# 开始学习
-
-<Text /> 
+# 最近更新
+##  [在web中导出word](./2022/html2doc.md)
