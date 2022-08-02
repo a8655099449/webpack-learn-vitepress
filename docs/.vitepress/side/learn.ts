@@ -23,6 +23,10 @@ const learnSide = [
         text: "js 中的 set 、 map 、weakMap 、 weakSet",
         link: "/pages/learn/js/set",
       },
+      {
+        text: "在vue中使用jsx",
+        link: "/pages/learn/vue/vue-jsx",
+      },
     ],
   },
 	{
