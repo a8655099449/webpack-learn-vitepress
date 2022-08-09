@@ -29,6 +29,21 @@ const learnSide = [
       },
     ],
   },
+  {
+    text: "typescript",
+    collapsible: true,
+    items: [
+      {
+        text: "ts中的内置关键字",
+        link: "/pages/learn/ts/keyword",
+      },
+      {
+        text: "ts中的内置泛型",
+        link: "/pages/learn/ts/genericity",
+      },
+    
+    ],
+  },
 	{
 		text: '小程序开发',
 		collapsible: true,
