@@ -19,3 +19,10 @@ type Keys = keyof Person
 type Keys = 'name' | 'age' | 'gender'
 
 ```
+## typeof
+`typeof`关键字可以在一个已声明的变量中提取出类型
+
+```ts
+const name = '张三'  // ts的自动识别类型功能，可以识别name:string
+type TName = typeof name // 等价于 TName = string
+```
