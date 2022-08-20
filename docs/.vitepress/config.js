@@ -61,7 +61,7 @@ function nav() {
           link: '/pages/learn/js/set',
         },
         {
-          text: 'js',
+          text: 'electron',
           link: '/pages/learn/electron/start',
         },
         {
