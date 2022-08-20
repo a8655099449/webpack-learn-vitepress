@@ -44,3 +44,14 @@ type TupleToObject<T extends readonly any[]> = {
 
 ## 第一个对象
 实现一个通用`First<T>`，它接受一个数组T并返回它的第一个元素的类型。
+Pick是一个过滤器，可以在第二个参数中过滤出你想要的key名，然后返回一个新的类型
+```ts
+type Person = {
+  name:string,
+  age:number,
+  gender:number
+}
+
+type Something = Pick<Person,'name'> // 只拥有name属性
+```
+

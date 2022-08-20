@@ -11,10 +11,13 @@ const config = defineConfig({
   themeConfig: {
     // logo: 'https://fulcrum-xy2-jingweisuo.obs.cn-south-1.myhuaweicloud.com:443/9680b50951fc48529a8ee216ffb7dc6a.ico',
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'github', link: 'https://github.com/a8655099449/webpack-learn-vitepress' },
     ],
+    /* 
+    https://github.com/a8655099449/webpack-learn-vitepress/edit/master/docs/pages/working/index.md
+    */
     editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+      pattern: 'https://github.com/a8655099449/webpack-learn-vitepress/edit/master/docs/:path',
       text: 'Edit this page on GitHub'
     },
     nav: nav(),
@@ -58,13 +61,24 @@ function nav() {
           link: '/pages/learn/js/set',
         },
         {
+          text: 'js',
+          link: '/pages/learn/electron/start',
+        },
+        {
           text: '面试',
           link: '/pages/interview/',
         },
       ]
     },
     {
-      text: '读书笔记',
+      text: '生活',
+      items:[
+        { 
+          text:'烹饪技巧',
+          link:'/pages/cooking/'
+        }
+
+      ]
       // link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md'
     }
   ]
