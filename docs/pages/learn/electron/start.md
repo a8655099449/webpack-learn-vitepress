@@ -27,7 +27,7 @@ npm config set ELECTRON_MIRROR http://npm.taobao.org/mirrors/electron/
 ```
 
 
-## 如何与nodejs进程同行
+## 如何与nodejs进程同行通信
 
 electron之所以强大，在于可以借助`nodejs`调用一些与系统交互的文件，否则你的程序，可能更适合在浏览器中使用。因为不需要下载，更加方便。
 
@@ -122,3 +122,10 @@ button.addEventListener("click", ping);
 ## 打包electron程序
 
 [打包官方文档教程](https://www.electronjs.org/zh/docs/latest/tutorial/tutorial-packaging)
+
+
+
+
+
+
+

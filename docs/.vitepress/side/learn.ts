@@ -51,6 +51,15 @@ const learnSide = [
 			{ text: '小程序页面和组件的创建', link: '/pages/learn/miniapp/01' },
 		],
 	},
+	{
+		text: 'electron',
+		collapsible: true,
+		items: [
+			{ text: '创建一个electron应用', link: '/pages/learn/electron/start' },
+			{ text: '客户端与nodejs的通信', link: '/pages/learn/electron/communication' },
+			{ text: '自定义自己的窗口', link: '/pages/learn/electron/diyWindows' },
+		],
+	},
 ];
 
 // class A {
