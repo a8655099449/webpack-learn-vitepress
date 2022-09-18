@@ -1,3 +1,4 @@
+
 import { defineConfig } from "vitepress"
 import interviewSide from "./side/interview"
 import learnSide from "./side/learn"
@@ -11,13 +12,10 @@ const config = defineConfig({
   themeConfig: {
     // logo: 'https://fulcrum-xy2-jingweisuo.obs.cn-south-1.myhuaweicloud.com:443/9680b50951fc48529a8ee216ffb7dc6a.ico',
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/a8655099449/webpack-learn-vitepress' },
+      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
     ],
-    /* 
-    https://github.com/a8655099449/webpack-learn-vitepress/edit/master/docs/pages/working/index.md
-    */
     editLink: {
-      pattern: 'https://github.com/a8655099449/webpack-learn-vitepress/edit/master/docs/:path',
+      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
       text: 'Edit this page on GitHub'
     },
     nav: nav(),
@@ -26,8 +24,6 @@ const config = defineConfig({
       '/pages/learn/': learnSide,
       '/pages/interview/':interviewSide
     },
-  
-    // docsDir: "/",
   },
 
   markdown: {
@@ -58,21 +54,17 @@ function nav() {
           link: '/pages/learn/js/set',
         },
         {
-          text: 'electron',
-          link: '/pages/learn/electron/start',
-        },
-        {
           text: '面试',
           link: '/pages/interview/',
         },
       ]
     },
     {
-      text: '生活',
+      text: '读书笔记',
       items:[
-        { 
-          text:'烹饪技巧',
-          link:'/pages/cooking/'
+        {
+          text:'坦格利安的巨龙们',
+          link:'/pages/book/dragon'
         }
 
       ]
@@ -80,8 +72,6 @@ function nav() {
     }
   ]
 }
-
-
 
 
 
