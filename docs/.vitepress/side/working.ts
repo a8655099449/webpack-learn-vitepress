@@ -15,6 +15,10 @@ const workSide: any[] = [
 				text: '日常开发中常使用的css片段',
 				link: '/pages/working/css-code-block',
 			},
+			{
+				text: '好用的电脑软件',
+				link: '/pages/working/nice-soft',
+			},
 		],
 	},
 	{
