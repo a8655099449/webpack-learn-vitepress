@@ -19,6 +19,10 @@ const workSide: any[] = [
 				text: '好用的电脑软件',
 				link: '/pages/working/nice-soft',
 			},
+			{
+				text: 'git使用的一些问题',
+				link: '/pages/working/git',
+			},
 		],
 	},
 	{
