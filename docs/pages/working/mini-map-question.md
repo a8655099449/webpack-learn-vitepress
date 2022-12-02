@@ -353,3 +353,47 @@ Page({
 2. `autoRotate`也只有在真机上有效果，且计算的角度有点问题
 :::
 
+## 坐标的转换
+百度和微信，使用的不是一种规范的坐标，使用时需要进行转换
+
+```js
+
+// 微信转百度
+export const wxLocationToBaidu = ({ lat, lng }) => {
+	let x_pi = (3.14159265358979324 * 3000.0) / 180.0;
+	let x = lng;
+	let y = lat;
+	let z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * x_pi);
+	let theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * x_pi);
+	let _lng = z * Math.cos(theta) + 0.0065;
+	let _lat = z * Math.sin(theta) + 0.006;
+	return {
+		string: `${_lat},${_lng}`,
+		object: {
+			longitude: _lng,
+			latitude: _lat,
+		},
+	};
+};
+
+// 百度转微信
+export const baiduLocationToWx = ({ lat, lng }) => {
+	let pi = (3.14159265358979324 * 3000.0) / 180.0;
+	let x = lng - 0.0065;
+	let y = lat - 0.006;
+	let z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * pi);
+	let theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * pi);
+	lng = z * Math.cos(theta);
+	lat = z * Math.sin(theta);
+
+	return {
+		string: `${lat},${lng}`,
+		object: {
+			longitude: lng,
+			latitude: lat,
+		},
+	};
+};
+
+```
+

@@ -10,3 +10,4 @@ node_modules
 pnpm-global
 TODOs.md
 package-lock.json
+dist/

@@ -23,6 +23,10 @@ const workSide: any[] = [
 				text: 'git使用的一些问题',
 				link: '/pages/working/git',
 			},
+			{
+				text: '小程序地图开发',
+				link: '/pages/working/mini-map-question',
+			},
 		],
 	},
 	{
