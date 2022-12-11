@@ -131,4 +131,104 @@ func main() {
 ![](https://s2.loli.net/2022/12/07/qJ2HQ9rmfihkPWF.png)
 
 
-## go 的标识符 、 关键字 、 命名规则
+## 声明变量
+
+声明变量有几个前提
+
+1. 只能以字母或者`_`开头
+2. 不能使用关键字作为变量名
+3. 声明后必须使用，否则会报错
+
+声明的格式
+
+```go
+var identifier type = 666
+声明关键字  变量名 类型  = 赋值（可以不赋值）
+```
+
+### 批量申明变量
+
+```go
+var (
+  name string
+  age int 
+  gender bool
+)
+fmt.Printf("name: %v\n", name)
+fmt.Printf("age: %v\n", age)
+fmt.Printf("gender: %v\n", gender)
+```
+**批量初始化 + 赋值**
+> 可以不用定义类型，go会根据赋值的类型，自动推算类型
+```go
+var name , age , gender = `tom` , 20 , `男`
+
+fmt.Printf("name: %v\n", name)
+fmt.Printf("age: %v\n", age)
+fmt.Printf("gender: %v\n", gender)
+```
+
+### 短变量声明
+
+短变量声明相当简洁，可能也是我们后面最常用到的声明方式。
+
+
+```go
+num1 := 66
+```
+这种声明不需要使用关键字，也不需要定义类型，直接赋值就行了， 但也有限制
+1. 不能再函数外进行声明
+2. 必须要赋值
+
+
+## 匿名变量
+比如说有这种情况，一个函数有两个返回值，但是你只想用到其中的一个,但这样是会报错的。
+
+![](https://s2.loli.net/2022/12/07/hKlrCX4xP5IwBFi.png)
+
+使用一个`_`当作匿名变量，来接受我们不想要的值
+
+![](https://s2.loli.net/2022/12/07/nk1rNAHfKTvoQye.png)
+
+匿名变量的数量是不受限制的
+
+## 常量
+
+常量顾名思义是无法更改的值，在几乎任何一种语言中都有这样的概念。
+
+常量和变量有以下的几个特点
+
+1. 使用`const` 作为关键字
+2. 必须要赋值
+3. 赋值完后不能修改
+
+## iota
+
+iota 是一个特殊的常量，它会在编译阶段可以被修改，
+
+初始值是0
+
+每次遇到常量时 +1 ,让我们来看下面的案例
+```go
+func main() {
+
+	const (
+		a1 = iota
+		a2 = iota
+		a3 = iota
+	)
+
+	fmt.Printf("a1: %v\n", a1)
+	fmt.Printf("a1: %v\n", a2)
+	fmt.Printf("a1: %v\n", a3)
+}
+```
+
+![](https://s2.loli.net/2022/12/07/oZH1siCBlvcgRAW.png)
+
+可以使用 `_` 跳过某一次的自增
+
+![](https://s2.loli.net/2022/12/07/RYCcUyBuQISjTsz.png)
+
+### iota 中间插队
+中间插队的概念和

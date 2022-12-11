@@ -58,21 +58,20 @@ for _, v := range arr {
 
  
 
-##  关键字
-
-**break**
+**下面是关键字模块**
+## **break**
 
 `break` 可以结束 `for` \ `switch` \ `select` 的代码块
 
 
 ![](https://s2.loli.net/2022/12/09/y2oGnZCLYmOt4UH.png)
+## continue
+
+ **continue**  ： 结束本次循环，继续下一次
 
 
-**continue**  ： 结束本次循环，继续下一次
 
-
-
-**goto**
+##  **goto**
 
 `goto`关键字可以跳转到一个标签 ,并且结束当前的代码块
 
@@ -113,48 +112,21 @@ END:
 }
 ```
 
+## defer(延迟) 
+
+go语言中 `defer` 会将后面跟随的语句进行延迟处理
+### defer 的特性
+
+1. 关键字defer用于注册延迟调用.
+2. 这些调用直到return前才被执。因此，可以用来做资源清理。
+3. 多个defer语句，按先进后出的方式执行。
+4. defer语句中的变量，在defer声明时就决定了。
 
 
-## 数组
+### defer用途
+1. 关闭文件句柄
+2. 锁资源释放
+3. 数据库连接释放
 
-数组在go中，是指固定长度相同类型的一段空间
 
-
-```go
-var arr = [3]int{1, 2, 3}
-fmt.Printf("arr: %v\n", arr)
-```
-
-也可以不指定长度
-
-```go
-var arr = [...]int{1, 2, 3}
-
-fmt.Printf("arr: %v\n", arr)
-```
-
-## 切片 
-
-切片可以理解为不限长度的数组
-```go
-var arr = []int{1, 2, 3}
-
-fmt.Printf("arr: %v\n", arr)
-```
-
-也可以从数组中进行初始化
-
-```go
-var arr = [...]int{1, 2, 3, 4, 5, 6}
-
-var slice1 = arr[:] // 取数组所有值作为切片
-var slice2 = arr[2:] // 取索引 2 ~ n 
-var slice3 = arr[:3] // 取索引 0 ~ 3-1
-var slice4 = arr[2:3] // 取索引 2 ~ 3-1
-
-fmt.Printf("slice1: %v\n", slice1)
-fmt.Printf("slice2: %v\n", slice2)
-fmt.Printf("slice3: %v\n", slice3)
-fmt.Printf("slice4: %v\n", slice4)
-```
-
+![](https://s2.loli.net/2022/12/11/5dzuXgAmaJ9pyMs.png)
