@@ -8,11 +8,13 @@ const config = defineConfig({
   title: "三体反攻舰队",
   description: "my blog work",
   lastUpdated: true,
+  head: [["link", { rel: "icon", href: "https://s2.loli.net/2022/12/13/vVFejXUpPTcCIsM.png" }]],
   themeConfig: {
     // logo: 'https://fulcrum-xy2-jingweisuo.obs.cn-south-1.myhuaweicloud.com:443/9680b50951fc48529a8ee216ffb7dc6a.ico',
     socialLinks: [
       { icon: "github", link: "https://github.com/vuejs/vitepress" },
     ],
+
     editLink: {
       pattern: "https://github.com/vuejs/vitepress/edit/main/docs/:path",
       text: "Edit this page on GitHub",

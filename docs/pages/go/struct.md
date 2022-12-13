@@ -220,7 +220,7 @@ func main() {
 
 Go中的方法，是一种特殊的函数，定义于struct之上（与struct关联、绑定），被称为struct的接受者(receiver)。
 通俗的讲，方法就是有接收者的函数。
-```go{10-12,19}
+```go{9-13,20}
 package main
 
 import "fmt"
@@ -229,8 +229,9 @@ type Person struct {
 	name string
 	age  int
 }
-
-func (p Person) sayHello() { // 函数名字前面加上括号，代表是一个结构体的方法
+// 函数名字前面加上括号，代表是一个结构体的方法
+func (p Person) sayHello() { 
+ // 我们可以将这个p的变量理解为this。但go里面不推荐你使用this作为命名
 	fmt.Printf(" %v say hello \n", p.name)
 }
 
@@ -241,4 +242,47 @@ func main() {
 	}
 	tom.sayHello()
 }
+```
+:::warning 方法的一些注意事项
+1. 方法的receiver type并非一定要是struct类型，type定义的类型别名、slice、map、channel、func类型等都可
+以
+2. struct结合它的方法就等价于面向对象中的类。只不过suc可以和它的方法分开，并非一定要属于同一个文
+件，但必须属于同一个包。
+3. 方法有两种接收类型：`(T Type)`和`(T *Type)`,它们之间有区别.
+4. 方法就是函数，所以Go中没有方法重载(overload)的说法，也就是说同一个类型中的所有方法名必须都唯一。
+5. 如果receiver是一个指针类型，则会自动解除引用.
+6. 方法和type是分开的，意味着实例的行为(behavior)和数据存储(field)是分开的，但是它们通过receiver建立起
+关联关系。
+:::
+
+### 方法接受指针
+
+跟结构体的指针概念很像，当我们只接受结构体时，再方法内部访问的结构体是复制出来的，**如果想要使用方法改变结构体的属性，就需要使用指针进行传递**，下面来看一个例子
+
+```go{12}
+package main
+import (
+	"fmt"
+)
+type Person struct {
+	name string
+}
+func (p Person) changeName() {
+	p.name = "王五" // 无效修改
+}
+
+func (p *Person) changeName2() {
+	p.name = "王五" // 有效修改
+}
+
+func main() {
+	var zs = Person{
+		name: "张三",
+	}
+	zs.changeName()
+	fmt.Printf("zs: %v\n", zs.name) // 还是张三
+	zs.changeName2()
+	fmt.Printf("zs: %v\n", zs.name) // 变成了王五
+}
+
 ```

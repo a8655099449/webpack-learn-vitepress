@@ -27,6 +27,14 @@ const workSide: any[] = [
 				text: '小程序地图开发',
 				link: '/pages/working/mini-map-question',
 			},
+			{
+				text: 'win11遇到的问题',
+				link: '/pages/working/win11FAQ',
+			},
+			{
+				text: '游戏问题',
+				link: '/pages/working/game-question',
+			},
 		],
 	},
 	{

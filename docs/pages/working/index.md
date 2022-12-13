@@ -6,3 +6,5 @@
 - [在自己的服务器上搭建内网穿透服务](./frp.md)
 - [日常开发中常使用的js片段](./js-common-code.md)
 - [日常开发中常使用的css片段](./css-code-block.md)
+- [win11问题](./win11FAQ.md)
+- [好用的电脑软件](./nice-soft.md)
