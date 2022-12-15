@@ -8,3 +8,5 @@
 - [日常开发中常使用的css片段](./css-code-block.md)
 - [win11问题](./win11FAQ.md)
 - [好用的电脑软件](./nice-soft.md)
+- [亿万僵尸存档脚本](./game-question.md)
+- [go land快捷键](../go/golangdShortcuts.md)

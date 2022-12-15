@@ -10,6 +10,9 @@ export default [
       { text: "结构体（struct）", link: "/pages/go/struct" },
       { text: "指针（pointer）", link: "/pages/go/pointer" },
       { text: "接口（interface）", link: "/pages/go/interface" },
+      { text: "包（package）", link: "/pages/go/package" },
+      { text: "协程(routine)", link: "/pages/go/routine" },
+      { text: "通道(channel)", link: "/pages/go/channel" },
 
     ],
   },

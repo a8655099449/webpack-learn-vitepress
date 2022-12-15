@@ -215,6 +215,49 @@ func main() {
 	fmt.Printf("tom: %v\n", tom)
 }
 ```
+### 结构体匿名嵌套 
+
+**结构体嵌套我们也可以省略别名**也就是匿名嵌套
+```go{13,14,20-29}
+package main
+import "fmt"
+type Animal struct {
+	name string
+}
+
+type AnimalOtherAttr struct {
+	age   int
+	color string
+}
+
+type Dog struct {
+	Animal
+	AnimalOtherAttr
+	weight string // 虽然这个属性不是匿名，但下面实例的时候依然要匿名
+}
+
+func main() {
+	
+	var dog = Dog{
+		Animal{
+			name: `小王`,
+		},
+		AnimalOtherAttr{
+			age: 20,
+			color: "黑色",
+		},
+		"500kg", // 必须要声明出所有的属性
+	}
+	fmt.Printf("dog.animal.name: %v\n", dog.name)
+}
+
+```
+:::warning 匿名嵌套需要注意的
+
+1. 结构体中的属性，不能重复
+2. 实例化结构体时，需要按照顺序依次实例 
+:::
+
 
 ## 结构体的方法
 

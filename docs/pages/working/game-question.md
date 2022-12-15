@@ -26,10 +26,8 @@ chcp 65001
 xcopy  "./Saves"  "D:\我的文档\Documents\My Games\They Are Billions\Saves" /s /e /h /y
 ```
 
-:::tip
 注意，以上的代码中。`D:\我的文档\Documents\My Games\They Are Billions\Saves` 请自动替换成你的目录，而且双引号一定不要忘记加上
 
 ![](https://s2.loli.net/2022/12/11/AcPDXSH5iuIaMZo.png)
-:::
 
 最后点击保存，双击`copy.bat`等于存档，双击`set.bat`等于设置存档
