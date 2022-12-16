@@ -118,4 +118,77 @@ func main() {
 ## runtime.Gosched
 > `runtime.Gosched`的作用是让出cpu的时间片。当有协程执行时，先让协程执行完毕，再执行
 
+```go{16}
+package main
 
+import (
+	"fmt"
+	"runtime"
+)
+
+func showMsg(msg string) {
+	for i := 0; i < 3; i++ {
+		fmt.Println(`show msg...` + msg)
+	}
+}
+func main() {
+	go showMsg(`111`)
+	for i := 0; i < 4; i++ {
+		runtime.Gosched() // 当有任务执行时，让出来
+		print(`执行后面的内容...`, "\n")
+	}
+	print(`end...`)
+
+}
+```
+**输出结果**
+
+```go
+执行后面的内容...
+show msg...111
+执行后面的内容...
+show msg...111
+执行后面的内容...
+show msg...111
+执行后面的内容...
+end...
+```
+> 第一次跑到前面可能是主进程执行的更快那时候cpu本来就属于空置状态,
+> 假如注释掉runtime.Gosched()那么协程将可能在还没有执行完毕，就被关闭
+
+
+
+##  runtime.Goexit()
+
+`runtime.Goexit()` 的作用是退出协程
+
+
+```go
+package main
+
+import (
+	"fmt"
+	"runtime"
+	"time"
+)
+
+func showMsg() {
+	for i := 0; i < 10; i++ {
+		if i == 5 {
+			runtime.Goexit() // 退出协程
+		}
+		fmt.Println(`show msg...`, i)
+	}
+}
+
+func main() {
+	go showMsg()
+
+	time.Sleep(time.Second)
+
+}
+
+```
+## runtime.NumCPU()
+
+获取cpu核数
