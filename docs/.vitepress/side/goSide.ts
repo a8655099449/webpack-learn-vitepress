@@ -13,6 +13,7 @@ export default [
       { text: "包（package）", link: "/pages/go/package" },
       { text: "协程(routine)", link: "/pages/go/routine" },
       { text: "通道(channel)", link: "/pages/go/channel" },
+      { text: "其他", link: "/pages/go/other" },
 
     ],
   },
