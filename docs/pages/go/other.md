@@ -321,3 +321,119 @@ func main() {
 }
 
 ```
+
+
+## json 解析
+
+将json 转换为 struct 或者 将 struct 转换为 json
+
+
+### 结构体转换为字符串
+
+```go
+package main
+
+import "encoding/json"
+
+type Person struct {
+	Name string
+	Age  int
+}
+
+func main() {
+	person := Person{Age: 18, Name: "张三"}
+	marshal, _ := json.Marshal(person)
+	println(string(marshal))
+}
+```
+:::warning
+结构体属性的首字母需要大写，否则无法转换
+:::
+
+
+### json字符串转换为结构体
+
+```go{15}
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type Person struct {
+	Name string
+	Age  int
+}
+
+func main() {
+	var p Person
+	err := json.Unmarshal([]byte(`{"Name":"张三","Age":18}`), &p)
+	if err == nil {
+		fmt.Printf("%v", p)
+	}
+}
+```
+
+### 从文件中读取json
+
+```go
+//从文件读取json
+
+func readJsonByFile() {
+	open, _ := os.Open("test.json")
+
+	defer open.Close()
+	d := json.NewDecoder(open)
+	var v map[string]interface{}
+	d.Decode(&v)
+
+	for key, value := range v {
+		fmt.Printf("%v:%v\n", key, value)
+	}
+
+}
+```
+
+## xml 解析
+
+### 将结构体转换为xml字符串
+```go
+
+type Person struct {
+	Name string
+	Age  int
+}
+
+func structToXml() {
+
+	person := Person{
+		Name: "张三",
+		Age:  18,
+	}
+	// 带有格式的转换
+	indent, _ := xml.MarshalIndent(person, "", "  ")
+	println(string(indent))
+
+}
+
+```
+
+
+### xml 转换为结构体
+
+```go
+func xmlToStruct() {
+
+	var str = `
+	<Person>
+	  <Name>张三</Name>
+	  <Age>18</Age>
+	</Person>
+	`
+	var b = []byte(str)
+	var p Person
+	xml.Unmarshal(b, &p)
+	fmt.Printf("%v", p)
+}
+```
