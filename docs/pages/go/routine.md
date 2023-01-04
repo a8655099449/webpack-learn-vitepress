@@ -115,6 +115,102 @@ func main() {
 
 ```
 
+## sync.Mutex
+使用sync.Mutex加锁的方式，来解决两个携程操作一个变量导致计算错误的
+
+
+```go{12,14}
+package main
+
+import (
+	"sync"
+	"time"
+)
+
+var count = 100
+var lock sync.Mutex
+
+func add() {
+	lock.Lock()
+	count++
+	lock.Unlock()
+}
+func sub() {
+	lock.Lock()
+	count--
+	lock.Unlock()
+}
+func main() {
+	for i := 0; i < 100; i++ {
+		go sub()
+		go add()
+
+	}
+
+	time.Sleep(time.Second)
+	println(`count=`, count)
+}
+
+```
+## 原子操作
+### 加减
+
+原子操作也可以让两个携程操作一个变量  并在高并发期间，保持不冲突
+```go
+package main
+
+import (
+	"sync/atomic"
+	"time"
+)
+
+var count int32 = 100
+
+func add() {
+	atomic.AddInt32(&count, 1)
+}
+func sub() {
+	atomic.AddInt32(&count, -1)
+}
+func main() {
+	for i := 0; i < 100; i++ {
+		go sub()
+		go add()
+
+	}
+	time.Sleep(time.Second)
+	println(`count=`, count)
+}
+
+```
+### 读写
+```go
+package main
+
+import (
+	"sync/atomic"
+)
+
+var count int32 = 100
+
+func add() {
+	atomic.AddInt32(&count, 1)
+	val := atomic.LoadInt32(&count)
+	atomic.StoreInt32(&count, 600)
+	println(val)   // 101
+	println(count) //600
+}
+
+func main() {
+	add()
+}
+```
+
+
+
+
+
+
 ## runtime.Gosched
 > `runtime.Gosched`的作用是让出cpu的时间片。当有协程执行时，先让协程执行完毕，再执行
 
