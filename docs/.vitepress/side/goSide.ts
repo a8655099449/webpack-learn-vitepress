@@ -14,7 +14,13 @@ export default [
       { text: "协程(routine)", link: "/pages/go/routine" },
       { text: "通道(channel)", link: "/pages/go/channel" },
       { text: "其他", link: "/pages/go/other" },
-
+    ],
+  },
+  {
+    text: "包（package）",
+    collapsible: true,
+    items: [
+      { text: "validator", link: "/pages/go/validator" },
     ],
   },
 ];
