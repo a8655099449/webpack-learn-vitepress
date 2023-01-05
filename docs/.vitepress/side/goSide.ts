@@ -21,6 +21,7 @@ export default [
     collapsible: true,
     items: [
       { text: "validator", link: "/pages/go/validator" },
+      { text: "gorm", link: "/pages/go/gorm" },
     ],
   },
 ];
