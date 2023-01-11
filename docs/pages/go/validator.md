@@ -209,7 +209,7 @@ validator 提供了大量内置数据格式验证，如`邮箱` \ `颜色` 等�
 
 
 ## 自定义验证规则
-```go{17-25,4}
+```go{17-23,4}
 var validate *validator.Validate
 type User struct {
 	Name  string `validate:"min=2"`
@@ -220,7 +220,7 @@ func main() {
 
 	var user1 = User{
 		Name:  "张三",
-		Phone: 17750594701,
+		Phone: 185222200,
 	}
 
 	validate = validator.New()
@@ -242,6 +242,139 @@ func main() {
 ```
 
 ## 错误处理
+
+validate会返回一个错误对象
+
+```go
+err := validate.Struct(user1)
+```
+err 存在三种情况
+
+1. `nil` = 没有错误
+2. `InvalidValidationError` =  输入参数有无
+3. `ValidationErrors` = 字段违反了约束
+我们可以在程序中判断`err != nil`时，依次将err转换为`InvalidValidationError`和`ValidationErrors`以获取更详细的信息：
+
+```go
+func processErr(err error) {
+	if err == nil {
+		return
+	}
+	validationError, ok := err.(*validator.InvalidValidationError)
+	if ok {
+		fmt.Printf("param error:%v", validationError)
+		return
+	}
+
+	validationErrs := err.(validator.ValidationErrors)
+	for _, validationErr := range validationErrs {
+		fmt.Printf("validationErr:%v \n", validationErr)
+	}
+}
+```
+错误信息基本上是这样的
+```
+Key: 'User.Phone' Error:Field validation for 'Phone' failed on the 'checkPhone' tag
+```
+
+假如我们希望给得到更加友好的提示，就需要设置一个映射来处理错误了
+
+我们可以将这个`validator`封装成一个模块
+
+```go
+package validate
+
+import (
+	"github.com/go-playground/validator/v10"
+	"regexp"
+	"strconv"
+)
+
+var Validate *validator.Validate
+
+// MessageMap 使用tag作为key来映射一些中文提示
+var MessageMap map[string]string = map[string]string{
+	"checkPhone": "手机格式不正确",
+	"min":        "长度不够",
+}
+
+// InitValidate 初始化Validate
+func InitValidate() {
+	Validate = validator.New()
+	_ = Validate.RegisterValidation("checkPhone", checkPhone)
+}
+
+// ProcessErr 处理错误信息
+func ProcessErr(err error) (errMessage string) {
+	if err == nil {
+		return ""
+	}
+
+	validationErrs := err.(validator.ValidationErrors)
+
+	var message = ""
+	for _, validationErr := range validationErrs {
+		tag := validationErr.Tag()
+		namespace := validationErr.Namespace()
+
+		// 假如存在映射时，将其替换成映射的值
+		if MessageMap[tag] != "" {
+			tag = MessageMap[tag]
+		}
+		message += namespace + tag + "\n"
+	}
+
+	return message
+}
+
+// 确认手机号
+func checkPhone(fl validator.FieldLevel) bool {
+	val := fl.Field().Int()
+	s := strconv.FormatInt(val, 10)
+	reg := regexp.MustCompile("^1(3\\d|4[5-9]|5[0-35-9]|6[567]|7[0-8]|8\\d|9[0-35-9])\\d{8}$")
+	b := reg.MatchString(s)
+	return b
+}
+
+```
+
+在`main.go`中使用
+
+```go
+package main
+
+import "code1/validate"
+
+func init() {
+	// 初始化验证实例
+	validate.InitValidate()
+}
+
+type User struct {
+	Name  string `validate:"min=2"`
+	Phone int    `validate:"checkPhone"`
+}
+
+func main() {
+	user := User{
+		Name:  "张",
+		Phone: 1775059664701,
+	}
+
+	err := validate.Instance.Struct(user)
+	errMessage := validate.ProcessErr(err)
+	println(errMessage)
+}
+```
+
+运行后我们就得到了一些相对友好的提示
+
+```
+User.Name长度不够
+User.Phone手机格式不正确
+```
+
+
 
 
 参考文章
