@@ -1,3 +1,10 @@
+export type SideItem = {
+  text?: string;
+  collapsible?: boolean;
+  items?: SideItem[];
+  link?: string;
+};
+
 export default [
   {
     text: "起步",
@@ -22,6 +29,7 @@ export default [
     items: [
       { text: "validator", link: "/pages/go/validator" },
       { text: "gorm", link: "/pages/go/gorm" },
+      { text: "gin", link: "/pages/go/gin" },
     ],
   },
 ];

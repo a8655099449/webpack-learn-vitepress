@@ -3,12 +3,21 @@ import goSide from "./side/goSide";
 import interviewSide from "./side/interview";
 import learnSide from "./side/learn";
 import workSide from "./side/working";
+import nextSide from "./side/nextSide";
 
 const config = defineConfig({
   title: "三体反攻舰队",
   description: "my blog work",
   lastUpdated: true,
-  head: [["link", { rel: "icon", href: "https://s2.loli.net/2022/12/13/vVFejXUpPTcCIsM.png" }]],
+  head: [
+    [
+      "link",
+      {
+        rel: "icon",
+        href: "https://s2.loli.net/2022/12/13/vVFejXUpPTcCIsM.png",
+      },
+    ],
+  ],
   themeConfig: {
     // logo: 'https://fulcrum-xy2-jingweisuo.obs.cn-south-1.myhuaweicloud.com:443/9680b50951fc48529a8ee216ffb7dc6a.ico',
     socialLinks: [
@@ -22,10 +31,11 @@ const config = defineConfig({
     nav: nav(),
     sidebar: {
       "/pages/working/": workSide,
+      "/pages/learn/next": nextSide,
       "/pages/learn/": learnSide,
       "/pages/interview/": interviewSide,
       "/pages/go/": goSide,
-    },
+    } as any,
   },
 
   markdown: {
@@ -59,6 +69,10 @@ function nav() {
         {
           text: "go",
           link: "/pages/go/install",
+        },
+        {
+          text: "next",
+          link: "/pages/learn/next/start",
         },
       ],
     },
