@@ -37,4 +37,23 @@ Vercel 我个人认为是比较适合部署个人网站，是next官方推出的
 这个部署方式也比较简单。只使用你的`github`注册一个账号，然后在注册Vercel时绑定你的`github`账号，
 
 1. 注册github账号（正常开发都有，可以省略）
-2. 
+2. 将你的next项目上传至github
+3. 注册Vercel账号，并绑定你的github账号
+4. 然后就可以从你github的仓库中导入项目并进行部署了
+
+![](https://s2.loli.net/2023/01/12/tpOLJsym7rXndAV.png)
+
+并且 vercel 会给你提供一个https的域名以及免费的服务器，这对于个人开发者十分友好
+
+### vercel自定义域名
+vercel免费给的域名，还是比较锉的，如果我们要自己的域名（前提是你有自己的域名）。
+
+打开[vercel后台](https://vercel.com/dashboard/domains)，然后添加你的域名。
+
+![](https://s2.loli.net/2023/01/12/bzOfu4geWNG1sh3.png)
+
+再后台的域名解析中添加vercel的服务器。
+
+![](https://s2.loli.net/2023/01/12/zLbxXZvT9mAqreB.png)
+
+然后访问域名就能看到我们的项目部署成功了。
