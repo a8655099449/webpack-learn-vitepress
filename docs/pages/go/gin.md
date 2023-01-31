@@ -33,3 +33,44 @@ func RunServer() {
 }
 
 ```
+
+## 获取参数
+
+1. 获取query参数
+
+获取类似这种参数`/user/delete?id=5`
+```go{2}
+func delUser(c *gin.Context) {
+	id := c.Query("id")
+	common.ResponseSuccess(c, id)
+}
+```
+
+2. 获取params参数
+
+`/user/delete/:id`
+
+```go{2}
+func delUser(c *gin.Context) {
+	id := c.Param("id")
+	common.ResponseSuccess(c, id)
+}
+```
+
+3. 获取body参数
+```go{3,4}
+func delUser(c *gin.Context) {
+	var user model.APIUser
+	data, _ := c.GetRawData()
+	_ = json.Unmarshal(data, &user)
+	common.ResponseSuccess(c, user)
+}
+```
+
+4. 获得header
+```go{2}
+func delUser(c *gin.Context) {
+	token := c.Request.Header["Token"][0]
+	common.ResponseSuccess(c, token)
+}
+```

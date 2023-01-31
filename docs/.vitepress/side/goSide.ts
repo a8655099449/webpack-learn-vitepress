@@ -24,7 +24,7 @@ export default [
     ],
   },
   {
-    text: "包（package）",
+  text: "包（package）",
     collapsible: true,
     items: [
       { text: "validator", link: "/pages/go/validator" },

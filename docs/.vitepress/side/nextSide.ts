@@ -16,6 +16,10 @@ const nextSide: SideItem[] = [
         text:"部署",
         link:"/pages/learn/next/Deploy"
       },
+      {
+        text:"获取数据",
+        link:"/pages/learn/next/getData"
+      },
     ],
   },
 ];

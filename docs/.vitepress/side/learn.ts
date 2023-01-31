@@ -61,10 +61,4 @@ const learnSide = [
 		],
 	},
 ];
-
-// class A {
-//   constructor
-// }
-
 export default learnSide;
-

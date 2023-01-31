@@ -716,3 +716,19 @@ const [err,res] = await to(request())
 ## 前端导出word
 
 [在web中如何导出word文件](./html2doc.md)
+
+
+## 判断是否为json字符串
+
+```js
+
+export const isJSON = (s: string) => {
+  try {
+    JSON.parse(s);
+    return true
+  } catch (error) {
+    return false
+  }
+};
+
+```
