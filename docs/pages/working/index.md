@@ -10,3 +10,4 @@
 - [好用的电脑软件](./nice-soft.md)
 - [亿万僵尸存档脚本](./game-question.md)
 - [go land快捷键](../go/golangdShortcuts.md)
+- [three.js QA](/pages/learn/js/ThreeQA.md)

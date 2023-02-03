@@ -721,7 +721,6 @@ const [err,res] = await to(request())
 ## 判断是否为json字符串
 
 ```js
-
 export const isJSON = (s: string) => {
   try {
     JSON.parse(s);
@@ -730,5 +729,4 @@ export const isJSON = (s: string) => {
     return false
   }
 };
-
 ```
