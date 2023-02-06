@@ -4,6 +4,7 @@ import interviewSide from "./side/interview";
 import learnSide from "./side/learn";
 import workSide from "./side/working";
 import nextSide from "./side/nextSide";
+import reactSide from "./side/reactSide";
 
 const config = defineConfig({
   title: "三体反攻舰队",
@@ -31,6 +32,7 @@ const config = defineConfig({
     nav: nav(),
     sidebar: {
       "/pages/working/": workSide,
+      "/pages/learn/react/": reactSide,
       "/pages/learn/next": nextSide,
       "/pages/learn/": learnSide,
       "/pages/interview/": interviewSide,
@@ -73,6 +75,10 @@ function nav() {
         {
           text: "next",
           link: "/pages/learn/next/start",
+        },
+        {
+          text: "react",
+          link: "/pages/learn/react/components",
         },
       ],
     },

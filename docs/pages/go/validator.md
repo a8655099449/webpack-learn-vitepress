@@ -380,3 +380,34 @@ User.Phone手机格式不正确
 参考文章
 - [Go 每日一库之 validator](https://juejin.cn/post/6844904115684802573)
 
+
+
+
+
+service-customer/manage       
+member/exportMemberList
+
+
+service-provide/manage       
+wallet/exportRechargeRecord
+
+
+service-customer/manage       
+wallet/exportWalletList
+
+
+service-customer/manage       
+wallet/exportWalletDetail
+
+
+service-order/manage       
+order/download/orderList
+
+
+service-order/manage       
+orderReport/export/busOrderDetail
+
+
+service-order/manage       
+orderReport/download/orderWalletReportList
+
